@@ -6,8 +6,8 @@
 set input_file "INPUT"
 set filename [file rootname [file tail $input_file]]
 set filedir [file dirname $input_file]
-set pdb_file "${filename}_psf.pdb"
-set psf_file "${filename}_psf.psf"
+set pdb_file "${filename}_autopsf.pdb"
+set psf_file "${filename}_autopsf.psf"
 set solvate "${filename}_wb"
 set noh_file "${filename}_noh.pdb"
 
@@ -17,33 +17,47 @@ mol new $input_file
 set sel [atomselect top "protein and not hydrogen"]
 $sel writepdb "${filedir}/${noh_file}"
 
-package require psfgen
-resetpsf
-topology $env(HOME)/Documents/charmmff/top_all36_prot.rtf
-pdbalias residue HIS HSE
-pdbalias residue HIE HSE
-pdbalias atom ILE CD1 CD
-segment U {pdb $noh_file}
-coordpdb $noh_file U
-guesscoord
-writepdb $pdb_file
-writepsf $psf_file
+# package require psfgen
+# resetpsf
+# topology $env(HOME)/Documents/charmmff/top_all36_prot.rtf
+# pdbalias residue HIS HSE
+# pdbalias residue HIE HSE
+# pdbalias atom ILE CD1 CD
+# segment U {pdb $noh_file}
+# coordpdb $noh_file U
+# guesscoord
+# writepdb $pdb_file
+# writepsf $psf_file
 
 # USING AUTOPSF
-# package require autopsf
-# autopsf -psf "${psf_file}" -pdb "${noh_file}" -dir $filedir
+package require autopsf
+autopsf -psf "${psf_file}" -pdb "${noh_file}" -dir $filedir
 # List all files starting with ".*_autopsf" in the source directory
-# set files [glob -nocomplain "./${filename}_autopsf*"]
+set files [glob -nocomplain "./${filename}_autopsf*"]
 # Move each autopsf file to the destination directory
-# foreach file $files {
-#     set dest_file "${filedir}/[file tail $file]"
-#     file rename $file $dest_file
-# }
+foreach file $files {
+    set dest_file "${filedir}/[file tail $file]"
+    file rename $file $dest_file
+}
 
 # SOLVATE
 package require solvate 
 solvate "${filedir}/${psf_file}" "${filedir}/${pdb_file}" -t 5 -o "${filedir}/${solvate}"
 mol delete all
+
+#FIX ATOMs
+set psf "${solvate}.psf"
+set pdb "${solvate}.pdb"
+set out "${solvate}.fix"
+
+mol load psf $psf
+mol addfile $pdb type pdb first 0 last -1 waitfor all
+set allatoms [atomselect top all]
+$allatoms set occupancy 0
+$allatoms set beta 0
+set group [atomselect top "protein"]
+$group set beta 1
+$allatoms writepdb $out
 
 # Periodic cell calculation
 mol new "${filedir}/${solvate}.psf"
@@ -65,14 +79,11 @@ set cell_block "$cellbasisvector$cellorigin"
 
 # Function does not work, hardcoding...
 # Creates new namd conf files
-set namd_min_basefile "$env(HOME)/Documents/tcc/namd_min.conf"
-set new_namd_min_conf_file "${filedir}/${solvate}_min.conf"
-
-set namd_eq_basefile "$env(HOME)/Documents/tcc/namd_eq.conf"
-set new_namd_eq_conf_file "${filedir}/${solvate}_eq.conf"
+set namd_basefile "$env(HOME)/Documents/tcc/tcc-arthur/namd.conf"
+set new_namd_conf_file "${filedir}/${solvate}.conf"
 
 set file_content [list]
-set file_in [open $namd_min_basefile r]
+set file_in [open $namd_basefile r]
 while {[gets $file_in line] >= 0} {
     # Check and replace specific lines
     if {[string match "structure*" $line]} {
@@ -82,11 +93,11 @@ while {[gets $file_in line] >= 0} {
     } elseif {[string match "periodic_info*" $line]} {
         lappend file_content  "${cell_block}"
     } elseif {[string match "input_name*" $line]} {
-        lappend file_content   "set inputname ${solvate}_min"
-    } elseif {[string match "output_name_eq*" $line]} {
-        lappend file_content   "set outputname ${solvate}_eq"
+        lappend file_content   "set inputname ${solvate}"
     } elseif {[string match "output_name_min*" $line]} {
         lappend file_content   "set outputname ${solvate}_min"
+    } elseif {[string match "fixed_file" $line]} {
+        lappend file_content   "fixedAtomsFile ${solvate}.fix"
     } else {
         lappend file_content $line
     }
@@ -94,40 +105,12 @@ while {[gets $file_in line] >= 0} {
 close $file_in
 
 # Write the modified content to the new file
-set file_out [open $new_namd_min_conf_file w]
+set file_out [open $new_namd_conf_file w]
 foreach line $file_content {
     puts $file_out $line
 }
 close $file_out
-
-
-set file_content [list]
-set file_in [open $namd_eq_basefile r]
-while {[gets $file_in line] >= 0} {
-    # Check and replace specific lines
-    if {[string match "structure*" $line]} {
-        lappend file_content  "structure ${filedir}/${solvate}.psf"
-    } elseif {[string match "coordinates*" $line]} {
-        lappend file_content  "coordinates ${filedir}/${solvate}.pdb"
-    } elseif {[string match "periodic_info*" $line]} {
-        lappend file_content  "${cell_block}"
-    } elseif {[string match "input_name*" $line]} {
-        lappend file_content   "set inputname ${solvate}_min"
-    } elseif {[string match "output_name_eq*" $line]} {
-        lappend file_content   "set outputname ${solvate}_eq"
-    } elseif {[string match "output_name_min*" $line]} {
-        lappend file_content   "set outputname ${solvate}_min"
-    } else {
-        lappend file_content $line
-    }
-}
-close $file_in
-
-# Write the modified content to the new file
-set file_out [open $new_namd_eq_conf_file w]
-foreach line $file_content {
-    puts $file_out $line
-}
-close $file_out
-
+ 
 exit
+
+
