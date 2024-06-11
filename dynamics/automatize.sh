@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Base directory containing the files
 # requires rusts rnr, fd and sd
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source $HOME/.cargo/env && cargo install fd-find ripgrep sd
 
 data_dir="$HOME/Documents/tcc/dynamics/0_dataset"
 min_dir="$HOME/Documents/tcc/dynamics/1_min"
+namd_conf="$HOME/Documents/tcc/dynamics/namd.conf"
 
 rnr "_final" "" "$data_dir" -f -r
 # Find all .pdb files
@@ -25,5 +25,8 @@ fd -a -e "pdb" . "${data_dir}" | while read -r file; do
     cp "$file" "$new_dir"
     cp "./prepare_pdbs.tcl" "${tcl_script}"
     sd "INPUT" "${new_dir}/${file_name}" "${tcl_script}" 
+    sd "NAMD_CONF" "${namd_conf}" "${tcl_script}" 
+
+    # vmd -dispdev text -e "${tcl_script}"
 done
 
