@@ -100,9 +100,9 @@ while {[gets $file_in line] >= 0} {
     } elseif {[string match "periodic_info*" $line]} {
         lappend file_content  "${cell_block}"
     } elseif {[string match "input_name*" $line]} {
-        lappend file_content   "set inputname ${solvate}"
+        lappend file_content   "inputname ${solvate}"
     } elseif {[string match "output_name*" $line]} {
-        lappend file_content   "set outputname ${solvate}_min"
+        lappend file_content   "outputname ${solvate}_min"
     } elseif {[string match "fixed_file" $line]} {
         lappend file_content   "fixedAtomsFile ${solvate}.fix"
     } else {
