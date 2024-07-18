@@ -1,0 +1,25 @@
+
+          Job failed to run because no atoms were detected in the system
+          The start of the data-set is as follows:
+
+ Line 1: "PM3                                                                         "
+ Line 2: "Title: Converted from XYZ file                                              "
+ Line 3: "                                                                            "
+ Line 4: "                                                                            "
+ Line 5: "N   -10.064139366149902 -16.265199661254883 28.506006240844727  1    1    1 "
+ Line 6: "HT1   -9.272988319396973 -16.57204818725586 27.904739379882813  1    1    1 "
+ Line 7: "HT2   -10.427854537963867 -15.37065601348877 28.119869232177734  1    1    1"
+ Line 8: "HT3   -10.805899620056152 -16.9915771484375 28.44463348388672  1    1    1  "
+ Line 9: "CA   -9.579334259033203 -16.13125228881836 29.91295051574707  1    1    1   "
+
+ **********************
+ *                    *
+ * JOB ENDED NORMALLY *
+ *                    *
+ **********************
+
+
+
+ TOTAL JOB TIME:             0.00 SECONDS
+
+ == MOPAC DONE ==
