@@ -7,129 +7,26 @@ set filedir [file dirname $input_file]
 set pdb_file "${filedir}/${filename}_psfgen.pdb"
 set psf_file "${filedir}/${filename}_psfgen.psf"
 set solvate "${filedir}/${filename}_wb"
-set new_namd_conf_file "${filedir}/${filename}_min.conf"
+set new_namd_conf_file "${solvate}_min.conf"
+SCRIPTDIR
 SSBOND
 
+source "${script_dir}/psfgen.tcl"
+create_psf "${input_file}" "TOPOLOGY" "${ssbond_script}"
 
-if {![file exists $psf_file]} {
-    # GENERATE PSF FILES
-    # USING MANUAL PSFGEN
-    package require psfgen
-    resetpsf
-    pdbalias residue HIS HSE
-    pdbalias residue HIE HSE
-    pdbalias residue CYX CYS
-    pdbalias residue CIS CYS
-    pdbalias residue HIP HSP
-    pdbalias residue HID HSD
-    pdbalias atom ILE CD1 CD
-    TOPOLOGY
-    puts "generating psf files"
-    mol new $input_file
-    set protein [atomselect top "protein and not hydrogen"]
-    set chains [lsort -unique [$protein get pfrag]]
-
-    foreach chain $chains {
-        set sel [atomselect top "pfrag $chain"]
-        set chain_file "${filedir}/${filename}_chain_${chain}.pdb"
-        $sel writepdb ${chain_file}
-    }
-
-    foreach chain $chains {
-        set chain_file "${filedir}/${filename}_chain_${chain}.pdb"
-        set disu_patch [exec python3 "$ssbond_script" "$chain_file"] 
-        segment "$chain" {pdb $chain_file}
-        eval $disu_patch
-        coordpdb $chain_file "$chain"
-    }
-    puts "guessing"
-    guesscoord
-    writepdb $pdb_file
-    writepsf $psf_file
-}
-
-# SOLVATE
-if {![file exists "${solvate}.psf"]} {
-    puts "generating solvated molecule pdb and psf"
-    package require solvate 
-    solvate "${psf_file}" "${pdb_file}" -t 5 -o "${solvate}"
-    mol delete all
-}
+source "${script_dir}/solvate.tcl"
+solvate_molecule "${solvate}" "${psf_file}" "${pdb_file}" "10"
 
 #FIX ATOMS
-if {![file exists "${solvate}.fix"]} {
-    puts "generating fixed atom files"
-    set psf "${solvate}.psf"
-    set pdb "${solvate}.pdb"
-    set fix_file "${solvate}.fix"
+source "${script_dir}/fix_atoms.tcl"
+fix_atoms "${solvate}"
 
-    mol load psf $psf
-    mol addfile $pdb type pdb first 0 last -1 waitfor all
-    set allatoms [atomselect top all]
-    $allatoms set occupancy 0
-    $allatoms set beta 0
-
-    # fix only protein
-    set group [atomselect top "protein"]
-    $group set beta 1
-    $allatoms writepdb $fix_file
-}
 if {![file exists $new_namd_conf_file]} {
-    # PERIODIC CELL CALCULATION
-    puts "calculating periodic cell"
-    mol new "${solvate}.psf"
-    mol addfile "${solvate}.pdb" type pdb
-    set wb_sel [atomselect top all] 
-    set minmax [measure minmax $wb_sel]
-    set min_x [lindex $minmax 0 0]
-    set max_x [lindex $minmax 1 0]
-    set min_y [lindex $minmax 0 1]
-    set max_y [lindex $minmax 1 1]
-    set min_z [lindex $minmax 0 2]
-    set max_z [lindex $minmax 1 2]
+    source "${script_dir}/periodic_cell.tcl"
+    set cell_block [calculate_periodic_cell "$solvate"]
 
-    set cellbasisvector "cellBasisVector1 [expr {$max_x-$min_x}] 0 0\n"
-    append cellbasisvector "cellBasisVector2 0 [expr {$max_y-$min_y}] 0\n"
-    # Get the last frame of the minimization
-    set last_frame [molinfo top get numframes]
-    incr last_frame -1
-
-    append cellbasisvector "cellBasisVector3 0 0 [expr {$max_z-$min_z}]\n"
-    set cellorigin "cellOrigin [expr {$min_x+($max_x-$min_x)/2}] [expr {$min_y+($max_y-$min_y)/2}] [expr {$min_z+($max_z-$min_z)/2}]"
-    set cell_block "$cellbasisvector$cellorigin"
-
-    # INSERT SPECIFIC INFO INTO NAMD CONF
-    set namd_basefile "NAMD_CONF"
-    set file_content [list]
-    set file_in [open $namd_basefile r]
-    while {[gets $file_in line] >= 0} {
-        # Check and replace specific lines
-        # Ta feio pois nao sei tcl
-        # TODO redo this using regex maybe
-        if {[string match "structure*" $line]} {
-            lappend file_content  "structure ${solvate}.psf"
-        } elseif {[string match "coordinates*" $line]} {
-            lappend file_content  "coordinates ${solvate}.pdb"
-        } elseif {[string match "periodic_info*" $line]} {
-            lappend file_content  "${cell_block}"
-        } elseif {[string match "input_name*" $line]} {
-            lappend file_content   "inputname ${solvate}"
-        } elseif {[string match "output_name*" $line]} {
-            lappend file_content   "outputname ${solvate}_min"
-        } elseif {[string match "fixed_file" $line]} {
-            lappend file_content   "fixedAtomsFile ${solvate}.fix"
-        } else {
-            lappend file_content $line
-        }
-    }
-    close $file_in
-
-    # Write the modified content to the new file
-    set file_out [open $new_namd_conf_file w]
-    foreach line $file_content {
-        puts $file_out $line
-    }
-    close $file_out
+    source "${script_dir}/create_namd_conf.tcl"
+    create_namd_conf "NAMD_CONF" "${solvate}" "${cell_block}"
 }
 
 # RUN NAMD
@@ -140,51 +37,10 @@ if {![file exists "${solvate}_min.log"]} {
 }
 
 # EXTRACT MINIMIZED STRUCTURE INTO PDB
-set dcd_file "${solvate}_min.dcd"
-set minimized_xyz "${solvate}_minimized.xyz"
-if {![file exists $minimized_xyz]} {
-    puts "generating minimized structure xyz"
-    # Load the structure and trajectory files
-    mol new "${solvate}.psf" type psf
-    mol addfile $dcd_file type dcd first 0 last -1 step 1 waitfor all
+source "${script_dir}/minimized_xyz.tcl"
+set minimized_xyz [extract_xyz "${solvate}"]
 
-    # Go to the last frame
-    animate goto [expr {[molinfo top get numframes] - 1}]
-
-    # Write the minimized structure to a xyz file
-    set sel [atomselect top protein]
-    $sel writexyz $minimized_xyz
-}
-
-set mop_file "${filename}.mop"
-if {![file exists "${mop_file}"]} {
-    # Load the XYZ file into VMD
-    mol new $minimized_xyz type xyz
-
-    # Get the number of atoms
-    set num_atoms [molinfo top get numatoms]
-
-    # Open the MOP file for writing
-    set output [open $mop_file w]
-
-    # Write the MOPAC header
-    puts $output "PM3\nTitle: Converted from XYZ file\n"
-
-    # Loop over each atom to write atom data
-    for {set i 0} {$i < $num_atoms} {incr i} {
-            # Get atom type and coordinates
-            set atom_type [atomselect top "index $i" get element]
-            set coords [atomselect top "index $i" get {x y z}]
-
-            # Extract coordinates
-            set x [lindex $coords 0]
-            set y [lindex $coords 1]
-            set z [lindex $coords 2]
-
-            # Write the atom line to the MOP file
-            puts $output "$atom_type   $x  1  $y  1  $z  1"
-    }
-    close $output
-}
+source "${script_dir}/create_mop_file.tcl"
+create_mop_file "${minimized_xyz}" "${filename}"
 
 exit
