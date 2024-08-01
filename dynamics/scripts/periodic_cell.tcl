@@ -1,6 +1,9 @@
 proc calculate_periodic_cell {solvate} {
     # PERIODIC CELL CALCULATION
+    puts "==========================================================="
     puts "calculating periodic cell"
+    puts "==========================================================="
+
     mol new "${solvate}.psf"
     mol addfile "${solvate}.pdb" type pdb
     set wb_sel [atomselect top all] 

@@ -1,10 +1,13 @@
 proc fix_atoms {solvate} {
-    puts "generating fixed atom files"
-    set psf "${solvate}.psf"
-    set pdb "${solvate}.pdb"
-    set fix_file "${solvate}.fix"
-
     if {![file exists "$fix_file"]} {
+        puts "==========================================================="
+        puts "generating fixed atom files"
+        puts "==========================================================="
+
+        set psf "${solvate}.psf"
+        set pdb "${solvate}.pdb"
+        set fix_file "${solvate}.fix"
+
         mol load psf $psf
         mol addfile $pdb type pdb first 0 last -1 waitfor all
         set allatoms [atomselect top all]

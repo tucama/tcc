@@ -1,4 +1,8 @@
 proc create_psf {input_file topology_file ssbond_script} {
+    puts "==========================================================="
+    puts "generating psf files"
+    puts "==========================================================="
+
     set filename [file rootname [file tail $input_file]]
     set filedir [file dirname $input_file]
     set pdb_file "${filedir}/${filename}_psfgen.pdb"
@@ -17,7 +21,6 @@ proc create_psf {input_file topology_file ssbond_script} {
         pdbalias residue HID HSD
         pdbalias atom ILE CD1 CD
         topology $topology_file
-        puts "generating psf files"
         mol new $input_file
         set protein [atomselect top "protein and not hydrogen"]
         set chains [lsort -unique [$protein get pfrag]]
