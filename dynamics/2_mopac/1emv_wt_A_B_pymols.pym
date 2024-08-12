@@ -1,0 +1,80 @@
+preset.publication(selection='all')
+set sphere_scale, 0.2
+set bg_rgb, white 
+set stick_radius, 0.18
+load 1emv_wt_A_B.pdb 
+load 1emv_wt_A_BFOA_HOMO_ph1.cube
+load 1emv_wt_A_BFOA_HOMO_ph2.cube
+load 1emv_wt_A_BFOA_LUMO_ph1.cube
+load 1emv_wt_A_BFOA_LUMO_ph2.cube
+load 1emv_wt_A_BFOA_Nucleophilicity.cube
+load 1emv_wt_A_BFOA_Electrophilicity.cube
+load 1emv_wt_A_BFOA_Radical_sucseptibility.cube
+load 1emv_wt_A_BFOA_Netphilicity_ph1.cube
+load 1emv_wt_A_BFOA_Netphilicity_ph2.cube
+load 1emv_wt_A_BFOA_L_Hardness_LCP.cube
+load 1emv_wt_A_BFOA_L_Hardness_Vee.cube
+load 1emv_wt_A_BFOA_Fukui_Potential_left.cube
+load 1emv_wt_A_BFOA_L_Hardness_INT.cube
+load 1emv_wt_A_BFOA_Softness_Dual_ph1.cube
+load 1emv_wt_A_BFOA_Softness_Dual_ph2.cube
+volume 1emv_wt_A_BFOA_HOMO_ph1_volume, 1emv_wt_A_BFOA_HOMO_ph1 
+volume 1emv_wt_A_BFOA_HOMO_ph2_volume, 1emv_wt_A_BFOA_HOMO_ph2 
+volume 1emv_wt_A_BFOA_LUMO_ph1_volume, 1emv_wt_A_BFOA_LUMO_ph1 
+volume 1emv_wt_A_BFOA_LUMO_ph2_volume, 1emv_wt_A_BFOA_LUMO_ph2 
+volume 1emv_wt_A_BFOA_Nucleophilicity_volume, 1emv_wt_A_BFOA_Nucleophilicity 
+volume 1emv_wt_A_BFOA_Electrophilicity_volume, 1emv_wt_A_BFOA_Electrophilicity 
+volume 1emv_wt_A_BFOA_Radical_sucseptibility_volume, 1emv_wt_A_BFOA_Radical_sucseptibility 
+volume 1emv_wt_A_BFOA_Netphilicity_ph1_volume, 1emv_wt_A_BFOA_Netphilicity_ph1 
+volume 1emv_wt_A_BFOA_Netphilicity_ph2_volume, 1emv_wt_A_BFOA_Netphilicity_ph2 
+volume 1emv_wt_A_BFOA_L_Hardness_LCP_volume, 1emv_wt_A_BFOA_L_Hardness_LCP 
+volume 1emv_wt_A_BFOA_L_Hardness_Vee_volume, 1emv_wt_A_BFOA_L_Hardness_Vee 
+volume 1emv_wt_A_BFOA_Fukui_Potential_left_volume, 1emv_wt_A_BFOA_Fukui_Potential_left 
+volume 1emv_wt_A_BFOA_L_Hardness_INT_volume, 1emv_wt_A_BFOA_L_Hardness_INT 
+volume 1emv_wt_A_BFOA_Softness_Dual_ph1_volume, 1emv_wt_A_BFOA_Softness_Dual_ph1 
+volume 1emv_wt_A_BFOA_Softness_Dual_ph2_volume, 1emv_wt_A_BFOA_Softness_Dual_ph2 
+volume_color 1emv_wt_A_BFOA_HOMO_ph1_volume, 0.0005 cyan 0.02 0.005 blue 0.05 
+volume_color 1emv_wt_A_BFOA_HOMO_ph2_volume, -0.005 red 0.04 -0.0005 orange 0.01 
+volume_color 1emv_wt_A_BFOA_LUMO_ph1_volume, 0.0005 cyan 0.02 0.005 blue 0.05 
+volume_color 1emv_wt_A_BFOA_LUMO_ph2_volume, -0.005 red 0.04 -0.0005 orange 0.01 
+volume_color 1emv_wt_A_BFOA_Nucleophilicity_volume, 0.0005 cyan 0.02 0.005 blue 0.05 
+volume_color 1emv_wt_A_BFOA_Electrophilicity_volume, 0.0005 pink 0.02 0.005 red  0.05 
+volume_color 1emv_wt_A_BFOA_Radical_sucseptibility_volume, 0.0005 yellow 0.02 0.005 green 0.05 
+volume_color 1emv_wt_A_BFOA_Netphilicity_ph1_volume, 0.0005 pink 0.03 0.005 red 0.05 
+volume_color 1emv_wt_A_BFOA_Netphilicity_ph2_volume, -0.005 blue 0.05 -0.0005 cyan 0.02 
+volume_color 1emv_wt_A_BFOA_L_Hardness_LCP_volume, -nan limon 0.02 -nan purpleblue 0.05 
+volume_color 1emv_wt_A_BFOA_L_Hardness_Vee_volume, -nan brightorange 0.001 -nan purple 0.05 
+volume_color 1emv_wt_A_BFOA_Fukui_Potential_left_volume, -nan aquamarine 0.002 -nan purple 0.05 
+volume_color 1emv_wt_A_BFOA_L_Hardness_INT_volume, 4.33809e-06 salmon 0.02 4.33809e-05 slate 0.05 
+volume_color 1emv_wt_A_BFOA_Softness_Dual_ph1_volume, -0.0162296 skyblue  0.04 -0.00540986 greencyan 0.01 
+volume_color 1emv_wt_A_BFOA_Softness_Dual_ph2_volume, 0.000792589 yelloworange 0.02 0.00237777 warmpink 0.05 
+load 1emv_wt_A_BFOA_Fukui_Potential_right.cube
+load 1emv_wt_A_BFOA_Fukui_Potential_avg.cube
+load 1emv_wt_A_BFOA_Softness_AVG.cube
+load 1emv_wt_A_BFOA_Hyper_Softess.cube
+load 1emv_wt_A_BFOA_Multiphilicity_ph1.cube
+load 1emv_wt_A_BFOA_Multiphilicity_ph2.cube
+load 1emv_wt_A_BFOA_MEP_ph1.cube
+load 1emv_wt_A_BFOA_MEP_ph2.cube
+load 1emv_wt_A_BFOA_MO_BAND.cube
+load 1emv_wt_A_BFOA_L_Hardness_TFD.cube
+volume 1emv_wt_A_BFOA_Fukui_Potential_right_volume, 1emv_wt_A_BFOA_Fukui_Potential_right 
+volume 1emv_wt_A_BFOA_Fukui_Potential_avg_volume, 1emv_wt_A_BFOA_Fukui_Potential_avg 
+volume 1emv_wt_A_BFOA_Softness_AVG_volume, 1emv_wt_A_BFOA_Softness_AVG 
+volume 1emv_wt_A_BFOA_Hyper_Softess_volume, 1emv_wt_A_BFOA_Hyper_Softess 
+volume 1emv_wt_A_BFOA_Multiphilicity_ph1_volume, 1emv_wt_A_BFOA_Multiphilicity_ph1 
+volume 1emv_wt_A_BFOA_Multiphilicity_ph2_volume, 1emv_wt_A_BFOA_Multiphilicity_ph2 
+volume 1emv_wt_A_BFOA_MEP_ph1_volume, 1emv_wt_A_BFOA_MEP_ph1 
+volume 1emv_wt_A_BFOA_MEP_ph2_volume, 1emv_wt_A_BFOA_MEP_ph2 
+volume 1emv_wt_A_BFOA_MO_BAND_volume, 1emv_wt_A_BFOA_MO_BAND 
+volume 1emv_wt_A_BFOA_L_Hardness_TFD_volume, 1emv_wt_A_BFOA_L_Hardness_TFD 
+volume_color 1emv_wt_A_BFOA_Fukui_Potential_right_volume, -nan cyan 0.0 -nan blue 0.05 
+volume_color 1emv_wt_A_BFOA_Fukui_Potential_avg_volume, -nan yellow 0.0 -nan orange 0.05 
+volume_color 1emv_wt_A_BFOA_Softness_AVG_volume, 1.21916e-07 cyan 0.0 1.21916e-06 blue 0.05 
+volume_color 1emv_wt_A_BFOA_Hyper_Softess_volume, 0.0002 yellow 0.02 0.001 orange 0.05 
+volume_color 1emv_wt_A_BFOA_Multiphilicity_ph1_volume, -0.0224248 blue 0.04 -0.0112124 cyan 0.05 
+volume_color 1emv_wt_A_BFOA_Multiphilicity_ph2_volume, 0.0112124 red 0.05 0.0224248 pink  0.02 
+volume_color 1emv_wt_A_BFOA_MEP_ph1_volume, 0.05 pink 0.0 0.5 red  0.04 
+volume_color 1emv_wt_A_BFOA_MEP_ph2_volume, -0.5 blue 0.04 -0.05 aquamarine  0.0 
+volume_color 1emv_wt_A_BFOA_MO_BAND_volume, 0 greencyan 0.02 0 green  0.05 
+volume_color 1emv_wt_A_BFOA_L_Hardness_TFD_volume, -nan brightorange 0.001 -nan purple 0.05 
