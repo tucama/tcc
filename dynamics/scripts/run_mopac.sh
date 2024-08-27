@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Directory containing the MOPAC input files (.mop)
 dyn_dir="$HOME/Documents/tcc/dynamics"

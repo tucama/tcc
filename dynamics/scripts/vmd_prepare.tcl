@@ -11,7 +11,7 @@ set new_namd_conf_file "${solvate}_min.conf"
 
 set homedir "$env(HOME)"
 set dynamic_dir "$homedir/Documents/tcc/dynamics"
-set script_dir "${dynamic_dir}/scripts"
+set script_dir "${dynamic_dir}/scripts/vmd_functions"
 set topology_file "${dynamic_dir}/charmmff/top_all36_prot.rtf"
 set ssbond_script "${script_dir}/ssbond.py"
 set namd_conf "${script_dir}/namd.conf"
