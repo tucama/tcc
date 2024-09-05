@@ -3,48 +3,41 @@
 # Directory containing the MOPAC input files (.mop)
 dyn_dir="$HOME/Documents/tcc/dynamics"
 mopac_dir="${dyn_dir}/2_mopac"
-default="."
-pattern="${1:-$default}"
 
-# Function to run MOPAC and handle compression
+num_threads=$(nproc)
+
 run_mopac() {
     local input_file="$1"
     local base_name=$(basename "$input_file" .mop)
 
     echo "Running MOPAC on $base_name.mop..."
 
-    # Run MOPAC in the background
-    mopac "$input_file" &
-
-    # Get the PID of the MOPAC process
-    local mopac_pid=$!
-
-    # Wait for MOPAC to finish
-    wait $mopac_pid
-
-    echo "MOPAC job for $base_name.mop completed."
-    if [[ ! -f "${mopac_dir}/mopac.aux.zip" ]]; then
-        zip "$mopac_dir/mopac.aux.zip" "${input_file%.*}.aux"
+    # Run MOPAC
+    mopac "$input_file"
+    if [[ -f "${input_file%.*}.arc" ]]; then
+        xz "${input_file%.*}.aux" -f
     else
-        # Compress the .aux file into a .zip archive using update mode (-u)
-        zip -u "$mopac_dir/mopac.aux.zip" "${input_file%.*}.aux"
+        rm "${input_file%.*}.aux" "${input_file%.*}.out" "${input_file%.*}.end" "${input_file%.*}.log" 
+
     fi
 
-    echo "Updated $mopac_dir/mopac.aux.zip with  ${input_file%.*}.aux"
+
 }
 
-pid=()
-# Loop through each .mop file in the input directory and run them in the background
-fd "${pattern}" "${mopac_dir}" -e mop | while read -r file; do
+fd "${1:-.}" "${2:-$mopac_dir}" -e mop | while read -r file; do
     if [[ ! -f "${file%.*}.arc" ]] ; then
+        while (( $(jobs -r | wc -l) >= num_threads )); do
+            # Wait for a slot to become available
+            sleep 1
+        done
+
+        # Run MOPAC in the background
         run_mopac "$file" &
-        pids+=($!)
+
     fi
 done
 
-for pid in "${pids[@]}"; do
-    wait $pid
-done
+wait
 
 echo "All calculations are complete."
 
