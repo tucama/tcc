@@ -2,14 +2,16 @@ source leaprc.protein.ff14SB
 source leaprc.water.tip3p
 
 # Carregar a proteína
-protein = loadPDB "__PDB_FILE__.pdb"
+protein = loadPDB "__PDB_FILE__"
 
-# Neutralizar o sistema com Na+ ou Cl- dependendo da carga
+# Exibir a carga atual do sistema
 charge protein
+
+# Neutralizar o sistema, adicionando íons para atingir uma carga líquida zero
 addIons protein Na+ 0
 addIons protein Cl- 0
 
-# Salvar os arquivos de topologia e coordenadas
-savePdb protein "__PDB_FILE__.pdb"
-quit
+# Opcional: salvar uma nova versão do PDB com os íons adicionados
+savePdb protein "__OUTPUT_FILE__-nt.pdb"
 
+quit
