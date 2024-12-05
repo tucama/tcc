@@ -15,7 +15,7 @@ run_mopac() {
     # Run MOPAC
     mopac "$input_file"
     if [[ -f "${input_file%.*}.arc" ]]; then
-        xz "${input_file%.*}.aux" -f
+        gzip "${input_file%.*}.aux" -f
     else
         rm "${input_file%.*}.aux" "${input_file%.*}.out" "${input_file%.*}.end" "${input_file%.*}.log" 
 
