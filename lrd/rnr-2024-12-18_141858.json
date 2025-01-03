@@ -1,0 +1,637 @@
+{
+  "date": "2024-12-18 14:18:58",
+  "operations": [
+    {
+      "source": "1a4y_A_Y434_A_BFOA.lrd",
+      "target": "1a4y_A_Y434_A_B.lrd"
+    },
+    {
+      "source": "1vfb_C_Q121_AB_CFOA.lrd",
+      "target": "1vfb_C_Q121_AB_C.lrd"
+    },
+    {
+      "source": "1dqj_B_Y33_AB_CFOA.lrd",
+      "target": "1dqj_B_Y33_AB_C.lrd"
+    },
+    {
+      "source": "1a4y_B_R5_A_BFOA.lrd",
+      "target": "1a4y_B_R5_A_B.lrd"
+    },
+    {
+      "source": "1jtg_B_E73FOA.lrd",
+      "target": "1jtg_B_E73.lrd"
+    },
+    {
+      "source": "1dvf_B_D58_AB_CDFOA.lrd",
+      "target": "1dvf_B_D58_AB_CD.lrd"
+    },
+    {
+      "source": "1jtg_B_G141FOA.lrd",
+      "target": "1jtg_B_G141.lrd"
+    },
+    {
+      "source": "1jtg_B_W150_A_BFOA.lrd",
+      "target": "1jtg_B_W150_A_B.lrd"
+    },
+    {
+      "source": "1dqj_A_N31FOA.lrd",
+      "target": "1dqj_A_N31.lrd"
+    },
+    {
+      "source": "1jtg_B_W150FOA.lrd",
+      "target": "1jtg_B_W150.lrd"
+    },
+    {
+      "source": "1jtg_B_W162_A_BFOA.lrd",
+      "target": "1jtg_B_W162_A_B.lrd"
+    },
+    {
+      "source": "1a4y_B_E108_A_BFOA.lrd",
+      "target": "1a4y_B_E108_A_B.lrd"
+    },
+    {
+      "source": "1emv_A_E39_A_BFOA.lrd",
+      "target": "1emv_A_E39_A_B.lrd"
+    },
+    {
+      "source": "1jtg_A_Q74FOA.lrd",
+      "target": "1jtg_A_Q74.lrd"
+    },
+    {
+      "source": "1jtg_A_L77FOA.lrd",
+      "target": "1jtg_A_L77.lrd"
+    },
+    {
+      "source": "1dqj_C_K97FOA.lrd",
+      "target": "1dqj_C_K97.lrd"
+    },
+    {
+      "source": "1emv_A_S48FOA.lrd",
+      "target": "1emv_A_S48.lrd"
+    },
+    {
+      "source": "1ktz_B_T27FOA.lrd",
+      "target": "1ktz_B_T27.lrd"
+    },
+    {
+      "source": "1a4y_B_H114FOA.lrd",
+      "target": "1a4y_B_H114.lrd"
+    },
+    {
+      "source": "1a4y_wt_A_BFOA.lrd",
+      "target": "1a4y_wt_A_B.lrd"
+    },
+    {
+      "source": "1dqj_B_Y53FOA.lrd",
+      "target": "1dqj_B_Y53.lrd"
+    },
+    {
+      "source": "1ktz_B_I26_A_BFOA.lrd",
+      "target": "1ktz_B_I26_A_B.lrd"
+    },
+    {
+      "source": "1dvf_ABFOA.lrd",
+      "target": "1dvf_AB.lrd"
+    },
+    {
+      "source": "1ktz_B_L3FOA.lrd",
+      "target": "1ktz_B_L3.lrd"
+    },
+    {
+      "source": "1dqj_C_L75_AB_CFOA.lrd",
+      "target": "1dqj_C_L75_AB_C.lrd"
+    },
+    {
+      "source": "1jtg_B_E73_A_BFOA.lrd",
+      "target": "1jtg_B_E73_A_B.lrd"
+    },
+    {
+      "source": "1dqj_C_R21FOA.lrd",
+      "target": "1dqj_C_R21.lrd"
+    },
+    {
+      "source": "1jtg_B_S113FOA.lrd",
+      "target": "1jtg_B_S113.lrd"
+    },
+    {
+      "source": "1dvf_A_Y32FOA.lrd",
+      "target": "1dvf_A_Y32.lrd"
+    },
+    {
+      "source": "1a4y_A_I459_A_BFOA.lrd",
+      "target": "1a4y_A_I459_A_B.lrd"
+    },
+    {
+      "source": "1jtg_B_Y143FOA.lrd",
+      "target": "1jtg_B_Y143.lrd"
+    },
+    {
+      "source": "1jtg_A_Y80FOA.lrd",
+      "target": "1jtg_A_Y80.lrd"
+    },
+    {
+      "source": "1vfb_C_S24_AB_CFOA.lrd",
+      "target": "1vfb_C_S24_AB_C.lrd"
+    },
+    {
+      "source": "1jtg_wt_A_BFOA.lrd",
+      "target": "1jtg_wt_A_B.lrd"
+    },
+    {
+      "source": "1jtg_B_W162FOA.lrd",
+      "target": "1jtg_B_W162.lrd"
+    },
+    {
+      "source": "1jtg_A_M104_A_BFOA.lrd",
+      "target": "1jtg_A_M104_A_B.lrd"
+    },
+    {
+      "source": "1dqj_B_Y53_AB_CFOA.lrd",
+      "target": "1dqj_B_Y53_AB_C.lrd"
+    },
+    {
+      "source": "1ktz_BFOA.lrd",
+      "target": "1ktz_B.lrd"
+    },
+    {
+      "source": "1jtg_B_W112FOA.lrd",
+      "target": "1jtg_B_W112.lrd"
+    },
+    {
+      "source": "1dqj_B_D32FOA.lrd",
+      "target": "1dqj_B_D32.lrd"
+    },
+    {
+      "source": "1dqj_C_T89FOA.lrd",
+      "target": "1dqj_C_T89.lrd"
+    },
+    {
+      "source": "1vfb_wt_AB_CFOA.lrd",
+      "target": "1vfb_wt_AB_C.lrd"
+    },
+    {
+      "source": "1dqj_A_N31_AB_CFOA.lrd",
+      "target": "1dqj_A_N31_AB_C.lrd"
+    },
+    {
+      "source": "1a4y_B_H84FOA.lrd",
+      "target": "1a4y_B_H84.lrd"
+    },
+    {
+      "source": "1ktz_B_T27_A_BFOA.lrd",
+      "target": "1ktz_B_T27_A_B.lrd"
+    },
+    {
+      "source": "1dqj_C_S100FOA.lrd",
+      "target": "1dqj_C_S100.lrd"
+    },
+    {
+      "source": "1jtg_A_K86FOA.lrd",
+      "target": "1jtg_A_K86.lrd"
+    },
+    {
+      "source": "1ktz_B_I29FOA.lrd",
+      "target": "1ktz_B_I29.lrd"
+    },
+    {
+      "source": "1a4y_A_K320FOA.lrd",
+      "target": "1a4y_A_K320.lrd"
+    },
+    {
+      "source": "1dvf_A_S93_AB_CDFOA.lrd",
+      "target": "1dvf_A_S93_AB_CD.lrd"
+    },
+    {
+      "source": "1jtg_A_E85_A_BFOA.lrd",
+      "target": "1jtg_A_E85_A_B.lrd"
+    },
+    {
+      "source": "1jtg_B_G48FOA.lrd",
+      "target": "1jtg_B_G48.lrd"
+    },
+    {
+      "source": "1vfb_C_Q121FOA.lrd",
+      "target": "1vfb_C_Q121.lrd"
+    },
+    {
+      "source": "1a4y_BFOA.lrd",
+      "target": "1a4y_B.lrd"
+    },
+    {
+      "source": "1jtg_B_F142FOA.lrd",
+      "target": "1jtg_B_F142.lrd"
+    },
+    {
+      "source": "1a4y_AFOA.lrd",
+      "target": "1a4y_A.lrd"
+    },
+    {
+      "source": "1dqj_C_S100_AB_CFOA.lrd",
+      "target": "1dqj_C_S100_AB_C.lrd"
+    },
+    {
+      "source": "1dvf_B_D58FOA.lrd",
+      "target": "1dvf_B_D58.lrd"
+    },
+    {
+      "source": "1emv_A_S46FOA.lrd",
+      "target": "1emv_A_S46.lrd"
+    },
+    {
+      "source": "1jtg_B_Y143_A_BFOA.lrd",
+      "target": "1jtg_B_Y143_A_B.lrd"
+    },
+    {
+      "source": "1dqj_C_Y20FOA.lrd",
+      "target": "1dqj_C_Y20.lrd"
+    },
+    {
+      "source": "1ktz_wt_A_BFOA.lrd",
+      "target": "1ktz_wt_A_B.lrd"
+    },
+    {
+      "source": "1ktz_B_I26FOA.lrd",
+      "target": "1ktz_B_I26.lrd"
+    },
+    {
+      "source": "1jtg_BFOA.lrd",
+      "target": "1jtg_B.lrd"
+    },
+    {
+      "source": "1ktz_B_F6_A_BFOA.lrd",
+      "target": "1ktz_B_F6_A_B.lrd"
+    },
+    {
+      "source": "1dvf_A_S93FOA.lrd",
+      "target": "1dvf_A_S93.lrd"
+    },
+    {
+      "source": "1jtg_A_Y80_A_BFOA.lrd",
+      "target": "1jtg_A_Y80_A_B.lrd"
+    },
+    {
+      "source": "1emv_B_F86FOA.lrd",
+      "target": "1emv_B_F86.lrd"
+    },
+    {
+      "source": "1a4y_A_E344_A_BFOA.lrd",
+      "target": "1a4y_A_E344_A_B.lrd"
+    },
+    {
+      "source": "1a4y_A_E401_A_BFOA.lrd",
+      "target": "1a4y_A_E401_A_B.lrd"
+    },
+    {
+      "source": "1dqj_C_L75FOA.lrd",
+      "target": "1dqj_C_L75.lrd"
+    },
+    {
+      "source": "1jtg_A_P82_A_BFOA.lrd",
+      "target": "1jtg_A_P82_A_B.lrd"
+    },
+    {
+      "source": "1a4y_A_E401FOA.lrd",
+      "target": "1a4y_A_E401.lrd"
+    },
+    {
+      "source": "1a4y_B_R31FOA.lrd",
+      "target": "1a4y_B_R31.lrd"
+    },
+    {
+      "source": "1a4y_A_K320_A_BFOA.lrd",
+      "target": "1a4y_A_K320_A_B.lrd"
+    },
+    {
+      "source": "1a4y_A_Y434FOA.lrd",
+      "target": "1a4y_A_Y434.lrd"
+    },
+    {
+      "source": "1emv_A_E39FOA.lrd",
+      "target": "1emv_A_E39.lrd"
+    },
+    {
+      "source": "1jtg_B_S113_A_BFOA.lrd",
+      "target": "1jtg_B_S113_A_B.lrd"
+    },
+    {
+      "source": "1jtg_B_G141_A_BFOA.lrd",
+      "target": "1jtg_B_G141_A_B.lrd"
+    },
+    {
+      "source": "1dvf_A_W92FOA.lrd",
+      "target": "1dvf_A_W92.lrd"
+    },
+    {
+      "source": "1ktz_B_L3_A_BFOA.lrd",
+      "target": "1ktz_B_L3_A_B.lrd"
+    },
+    {
+      "source": "1emv_BFOA.lrd",
+      "target": "1emv_B.lrd"
+    },
+    {
+      "source": "1a4y_A_E344FOA.lrd",
+      "target": "1a4y_A_E344.lrd"
+    },
+    {
+      "source": "1dqj_A_Y50FOA.lrd",
+      "target": "1dqj_A_Y50.lrd"
+    },
+    {
+      "source": "1ktz_B_E95_A_BFOA.lrd",
+      "target": "1ktz_B_E95_A_B.lrd"
+    },
+    {
+      "source": "1emv_A_V32_A_BFOA.lrd",
+      "target": "1emv_A_V32_A_B.lrd"
+    },
+    {
+      "source": "1vfb_B_G31_AB_CFOA.lrd",
+      "target": "1vfb_B_G31_AB_C.lrd"
+    },
+    {
+      "source": "1vfb_C_D18FOA.lrd",
+      "target": "1vfb_C_D18.lrd"
+    },
+    {
+      "source": "1emv_A_C21_A_BFOA.lrd",
+      "target": "1emv_A_C21_A_B.lrd"
+    },
+    {
+      "source": "1emv_AFOA.lrd",
+      "target": "1emv_A.lrd"
+    },
+    {
+      "source": "1dqj_CFOA.lrd",
+      "target": "1dqj_C.lrd"
+    },
+    {
+      "source": "1emv_A_S48_A_BFOA.lrd",
+      "target": "1emv_A_S48_A_B.lrd"
+    },
+    {
+      "source": "1jtg_A_L77_A_BFOA.lrd",
+      "target": "1jtg_A_L77_A_B.lrd"
+    },
+    {
+      "source": "1ktz_AFOA.lrd",
+      "target": "1ktz_A.lrd"
+    },
+    {
+      "source": "1emv_A_T25_A_BFOA.lrd",
+      "target": "1emv_A_T25_A_B.lrd"
+    },
+    {
+      "source": "1vfb_C_N19FOA.lrd",
+      "target": "1vfb_C_N19.lrd"
+    },
+    {
+      "source": "1vfb_C_T118FOA.lrd",
+      "target": "1vfb_C_T118.lrd"
+    },
+    {
+      "source": "1jtg_B_F142_A_BFOA.lrd",
+      "target": "1jtg_B_F142_A_B.lrd"
+    },
+    {
+      "source": "1a4y_A_D435_A_BFOA.lrd",
+      "target": "1a4y_A_D435_A_B.lrd"
+    },
+    {
+      "source": "1dqj_C_K97_AB_CFOA.lrd",
+      "target": "1dqj_C_K97_AB_C.lrd"
+    },
+    {
+      "source": "1a4y_B_R31_A_BFOA.lrd",
+      "target": "1a4y_B_R31_A_B.lrd"
+    },
+    {
+      "source": "1jtg_A_E79FOA.lrd",
+      "target": "1jtg_A_E79.lrd"
+    },
+    {
+      "source": "1emv_A_C21FOA.lrd",
+      "target": "1emv_A_C21.lrd"
+    },
+    {
+      "source": "1a4y_B_H84_A_BFOA.lrd",
+      "target": "1a4y_B_H84_A_B.lrd"
+    },
+    {
+      "source": "1dqj_B_Y33FOA.lrd",
+      "target": "1dqj_B_Y33.lrd"
+    },
+    {
+      "source": "1vfb_B_G31FOA.lrd",
+      "target": "1vfb_B_G31.lrd"
+    },
+    {
+      "source": "1dqj_wt_AB_CFOA.lrd",
+      "target": "1dqj_wt_AB_C.lrd"
+    },
+    {
+      "source": "1emv_A_D49_A_BFOA.lrd",
+      "target": "1emv_A_D49_A_B.lrd"
+    },
+    {
+      "source": "1emv_A_V32FOA.lrd",
+      "target": "1emv_A_V32.lrd"
+    },
+    {
+      "source": "1a4y_A_W261FOA.lrd",
+      "target": "1a4y_A_W261.lrd"
+    },
+    {
+      "source": "1jtg_A_E79_A_BFOA.lrd",
+      "target": "1jtg_A_E79_A_B.lrd"
+    },
+    {
+      "source": "1vfb_ABFOA.lrd",
+      "target": "1vfb_AB.lrd"
+    },
+    {
+      "source": "1dqj_ABFOA.lrd",
+      "target": "1dqj_AB.lrd"
+    },
+    {
+      "source": "1jtg_A_K86_A_BFOA.lrd",
+      "target": "1jtg_A_K86_A_B.lrd"
+    },
+    {
+      "source": "1a4y_A_W261_A_BFOA.lrd",
+      "target": "1a4y_A_W261_A_B.lrd"
+    },
+    {
+      "source": "1emv_A_T25FOA.lrd",
+      "target": "1emv_A_T25.lrd"
+    },
+    {
+      "source": "1ktz_B_F6FOA.lrd",
+      "target": "1ktz_B_F6.lrd"
+    },
+    {
+      "source": "1jtg_A_M104FOA.lrd",
+      "target": "1jtg_A_M104.lrd"
+    },
+    {
+      "source": "1dqj_C_T89_AB_CFOA.lrd",
+      "target": "1dqj_C_T89_AB_C.lrd"
+    },
+    {
+      "source": "1a4y_A_Y437FOA.lrd",
+      "target": "1a4y_A_Y437.lrd"
+    },
+    {
+      "source": "1jtg_A_P82FOA.lrd",
+      "target": "1jtg_A_P82.lrd"
+    },
+    {
+      "source": "1dqj_B_W98FOA.lrd",
+      "target": "1dqj_B_W98.lrd"
+    },
+    {
+      "source": "1a4y_A_D435FOA.lrd",
+      "target": "1a4y_A_D435.lrd"
+    },
+    {
+      "source": "1dqj_A_Y50_AB_CFOA.lrd",
+      "target": "1dqj_A_Y50_AB_C.lrd"
+    },
+    {
+      "source": "1dqj_C_D101FOA.lrd",
+      "target": "1dqj_C_D101.lrd"
+    },
+    {
+      "source": "1jtg_AFOA.lrd",
+      "target": "1jtg_A.lrd"
+    },
+    {
+      "source": "1a4y_A_W263_A_BFOA.lrd",
+      "target": "1a4y_A_W263_A_B.lrd"
+    },
+    {
+      "source": "1dvf_B_R99FOA.lrd",
+      "target": "1dvf_B_R99.lrd"
+    },
+    {
+      "source": "1jtg_B_W112_A_BFOA.lrd",
+      "target": "1jtg_B_W112_A_B.lrd"
+    },
+    {
+      "source": "1emv_A_D49FOA.lrd",
+      "target": "1emv_A_D49.lrd"
+    },
+    {
+      "source": "1jtg_B_G48_A_BFOA.lrd",
+      "target": "1jtg_B_G48_A_B.lrd"
+    },
+    {
+      "source": "1dqj_B_D32_AB_CFOA.lrd",
+      "target": "1dqj_B_D32_AB_C.lrd"
+    },
+    {
+      "source": "1jtg_A_E85FOA.lrd",
+      "target": "1jtg_A_E85.lrd"
+    },
+    {
+      "source": "1dqj_C_Y20_AB_CFOA.lrd",
+      "target": "1dqj_C_Y20_AB_C.lrd"
+    },
+    {
+      "source": "1vfb_CFOA.lrd",
+      "target": "1vfb_C.lrd"
+    },
+    {
+      "source": "1dvf_A_W92_AB_CDFOA.lrd",
+      "target": "1dvf_A_W92_AB_CD.lrd"
+    },
+    {
+      "source": "1vfb_C_D18_AB_CFOA.lrd",
+      "target": "1vfb_C_D18_AB_C.lrd"
+    },
+    {
+      "source": "1vfb_C_S24FOA.lrd",
+      "target": "1vfb_C_S24.lrd"
+    },
+    {
+      "source": "1vfb_C_N19_AB_CFOA.lrd",
+      "target": "1vfb_C_N19_AB_C.lrd"
+    },
+    {
+      "source": "1ktz_B_I29_A_BFOA.lrd",
+      "target": "1ktz_B_I29_A_B.lrd"
+    },
+    {
+      "source": "1dqj_C_D101_AB_CFOA.lrd",
+      "target": "1dqj_C_D101_AB_C.lrd"
+    },
+    {
+      "source": "1a4y_A_Y437_A_BFOA.lrd",
+      "target": "1a4y_A_Y437_A_B.lrd"
+    },
+    {
+      "source": "1ktz_B_E95FOA.lrd",
+      "target": "1ktz_B_E95.lrd"
+    },
+    {
+      "source": "1dqj_B_W98_AB_CFOA.lrd",
+      "target": "1dqj_B_W98_AB_C.lrd"
+    },
+    {
+      "source": "1a4y_A_W263FOA.lrd",
+      "target": "1a4y_A_W263.lrd"
+    },
+    {
+      "source": "1dqj_C_N93FOA.lrd",
+      "target": "1dqj_C_N93.lrd"
+    },
+    {
+      "source": "1dqj_C_R21_AB_CFOA.lrd",
+      "target": "1dqj_C_R21_AB_C.lrd"
+    },
+    {
+      "source": "1jtg_B_Y51_A_BFOA.lrd",
+      "target": "1jtg_B_Y51_A_B.lrd"
+    },
+    {
+      "source": "1a4y_B_H114_A_BFOA.lrd",
+      "target": "1a4y_B_H114_A_B.lrd"
+    },
+    {
+      "source": "1a4y_A_I459FOA.lrd",
+      "target": "1a4y_A_I459.lrd"
+    },
+    {
+      "source": "1dqj_C_N93_AB_CFOA.lrd",
+      "target": "1dqj_C_N93_AB_C.lrd"
+    },
+    {
+      "source": "1a4y_B_E108FOA.lrd",
+      "target": "1a4y_B_E108.lrd"
+    },
+    {
+      "source": "1vfb_C_T118_AB_CFOA.lrd",
+      "target": "1vfb_C_T118_AB_C.lrd"
+    },
+    {
+      "source": "1jtg_A_Q74_A_BFOA.lrd",
+      "target": "1jtg_A_Q74_A_B.lrd"
+    },
+    {
+      "source": "1a4y_B_R5FOA.lrd",
+      "target": "1a4y_B_R5.lrd"
+    },
+    {
+      "source": "1dvf_A_Y32_AB_CDFOA.lrd",
+      "target": "1dvf_A_Y32_AB_CD.lrd"
+    },
+    {
+      "source": "1jtg_B_Y51FOA.lrd",
+      "target": "1jtg_B_Y51.lrd"
+    },
+    {
+      "source": "1emv_A_S46_A_BFOA.lrd",
+      "target": "1emv_A_S46_A_B.lrd"
+    }
+  ]
+}
