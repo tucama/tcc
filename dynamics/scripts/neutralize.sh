@@ -4,7 +4,7 @@
 base_dir="$HOME/tcc/dynamics/1_min/"
 
 # Encontrar todos os arquivos .pdb no diretório e subdiretórios
-find "$base_dir" -type f -name "*.pdb" | while read pdb_file; do
+find "${1:-"$base_dir"}" -type f -name "*.pdb" | while read pdb_file; do
     # Nome do arquivo sem extensão
     base_name=$(basename "$pdb_file" .pdb)
     output_dir=$(dirname "$pdb_file")
